@@ -23,6 +23,14 @@ void xuatMaTran(int a[MAX][MAX], int n) {
     }
 }
 
+void xuatPhanTuDuongCheoChinh(int a[MAX][MAX], int n) {
+    printf("\nCac phan tu tren duong cheo chinh:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%4d", a[i][i]);
+    }
+    printf("\n");
+}
+
 int main() {
     int a[MAX][MAX];
     int n;
@@ -41,12 +49,16 @@ int main() {
     while (1) {
         printf("\nMenu:\n");
         printf("0. Thoat\n");
+        printf("1. Xuat cac phan tu tren duong cheo chinh\n");
         printf("Chon: ");
         scanf("%d", &choice);
 
         switch (choice) {
         case 0:
             return 0;
+        case 1:
+            xuatPhanTuDuongCheoChinh(a, n);
+            break;
         default:
             printf("Lua chon khong hop le!\n");
             break;
