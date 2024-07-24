@@ -45,6 +45,46 @@ void xuatMaxTungCot(int a[MAX][MAX], int m, int n) {
     }
 }
 
+void xuatCacPhanTuDuongBien(int a[MAX][MAX], int m, int n) {
+    printf("Duong bien tren va duoi:\n");
+    for (int j = 0; j < n; j++) {
+        printf("%4d", a[0][j]);
+    }
+    printf("\n");
+    for (int j = 0; j < n; j++) {
+        printf("%4d", a[m - 1][j]);
+    }
+    printf("\nDuong bien trai va phai:\n");
+    for (int i = 1; i < m - 1; i++) {
+        printf("%4d%*s%4d\n", a[i][0], (n - 1) * 4 - 4, "", a[i][n - 1]);
+    }
+}
+
+int laCucDai(int a[MAX][MAX], int i, int j, int m, int n) {
+    int di[] = { -1, 0, 1, 0 };
+    int dj[] = { 0, 1, 0, -1 };
+    for (int k = 0; k < 4; k++) {
+        int ni = i + di[k];
+        int nj = j + dj[k];
+        if (ni >= 0 && ni < m && nj >= 0 && nj < n && a[ni][nj] >= a[i][j]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+void xuatCacPhanTuCucDai(int a[MAX][MAX], int m, int n) {
+    printf("Cac phan tu cuc dai:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (laCucDai(a, i, j, m, n)) {
+                printf("%4d", a[i][j]);
+            }
+        }
+    }
+    printf("\n");
+}
+
 int main() {
     int a[MAX][MAX];
     int m, n, k;
@@ -55,6 +95,8 @@ int main() {
         printf("1. Tao va xuat ma tran ngau nhien\n");
         printf("2. Tinh tong gia tri tung dong\n");
         printf("3. Xuat phan tu lon nhat tren tung cot\n");
+        printf("4. Xuat cac phan tu thuoc cac duong bien\n");
+        printf("5. Xuat cac phan tu cuc dai\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon cua ban: ");
         scanf("%d", &choice);
@@ -70,13 +112,17 @@ int main() {
             taoMaTranNgauNhien(a, m, n, k);
             xuatMaTran(a, m, n);
             break;
-
         case 2:
             tinhTongTungDong(a, m, n);
             break;
-
         case 3:
             xuatMaxTungCot(a, m, n);
+            break;
+        case 4:
+            xuatCacPhanTuDuongBien(a, m, n);
+            break;
+        case 5:
+            xuatCacPhanTuCucDai(a, m, n);
             break;
 
         case 0:
