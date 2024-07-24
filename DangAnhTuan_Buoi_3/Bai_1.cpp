@@ -104,6 +104,20 @@ void xuatDongChiChuaSoChan(int a[MAX][MAX], int m, int n) {
     }
 }
 
+void sapXepTangTheoDong(int a[MAX][MAX], int m, int n) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n - 1; j++) {
+            for (int k = j + 1; k < n; k++) {
+                if (a[i][j] > a[i][k]) {
+                    int temp = a[i][j];
+                    a[i][j] = a[i][k];
+                    a[i][k] = temp;
+                }
+            }
+        }
+    }
+}
+
 int main() {
     int a[MAX][MAX];
     int m, n, k;
@@ -117,6 +131,7 @@ int main() {
         printf("4. Xuat cac phan tu thuoc cac duong bien\n");
         printf("5. Xuat cac phan tu cuc dai\n");
         printf("6. Xuat dong chi chua so chan\n");
+        printf("7. Sap xep mang tang theo tung dong\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon cua ban: ");
         scanf("%d", &choice);
@@ -147,6 +162,9 @@ int main() {
         case 6:
             xuatDongChiChuaSoChan(a, m, n);
             break;
+        case 7:
+            sapXepTangTheoDong(a, m, n);
+            xuatMaTran(a, m, n);
         case 0:
             printf("Thoat chuong trinh.\n");
             break;
