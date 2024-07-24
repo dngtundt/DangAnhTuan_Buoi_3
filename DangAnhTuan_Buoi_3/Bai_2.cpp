@@ -31,6 +31,18 @@ void xuatPhanTuDuongCheoChinh(int a[MAX][MAX], int n) {
     printf("\n");
 }
 
+void xuatPhanTuSongSongDuongCheoChinh(int a[MAX][MAX], int n) {
+    printf("\nCac phan tu thuoc duong cheo song song voi duong cheo chinh:\n");
+    for (int i = 0; i < n - 1; i++) {
+        printf("%4d", a[i][i + 1]);
+    }
+    printf("\n");
+    for (int i = 1; i < n; i++) {
+        printf("%4d", a[i][i - 1]);
+    }
+    printf("\n");
+}
+
 int main() {
     int a[MAX][MAX];
     int n;
@@ -50,6 +62,7 @@ int main() {
         printf("\nMenu:\n");
         printf("0. Thoat\n");
         printf("1. Xuat cac phan tu tren duong cheo chinh\n");
+        printf("2. Xuat cac phan tu thuoc duong cheo song song voi duong cheo chinh\n");
         printf("Chon: ");
         scanf("%d", &choice);
 
@@ -58,6 +71,9 @@ int main() {
             return 0;
         case 1:
             xuatPhanTuDuongCheoChinh(a, n);
+            break;
+        case 2:
+            xuatPhanTuSongSongDuongCheoChinh(a, n);
             break;
         default:
             printf("Lua chon khong hop le!\n");
