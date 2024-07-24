@@ -91,6 +91,28 @@ void sapXepzigzag(int a[MAX][MAX], int n) {
     }
 }
 
+void sapXepDuongCheoChinh(int a[MAX][MAX], int n) {
+    int temp[MAX];
+
+    for (int i = 0; i < n; i++) {
+        temp[i] = a[i][i];
+    }
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (temp[i] > temp[j]) {
+                int swap = temp[i];
+                temp[i] = temp[j];
+                temp[j] = swap;
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++) {
+        a[i][i] = temp[i];
+    }
+}
+
 int main() {
     int a[MAX][MAX];
     int n;
@@ -113,6 +135,7 @@ int main() {
         printf("2. Xuat cac phan tu thuoc duong cheo song song voi duong cheo chinh\n");
         printf("3. Tim phan tu max thuoc tam giac tren cua duong cheo chinh\n");
         printf("4. Sap xep ma tran tang dan theo kieu zic-zac\n");
+        printf("5. Sap xep duong cheo chinh tang dan tu tren xuong duoi\n");
         printf("Chon: ");
         scanf("%d", &choice);
 
@@ -130,6 +153,10 @@ int main() {
             break;
         case 4:
             sapXepzigzag(a, n);
+            xuatMaTran(a, n);
+            break;
+        case 5:
+            sapXepDuongCheoChinh(a, n);
             xuatMaTran(a, n);
             break;
 
