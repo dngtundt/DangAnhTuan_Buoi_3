@@ -85,6 +85,25 @@ void xuatCacPhanTuCucDai(int a[MAX][MAX], int m, int n) {
     printf("\n");
 }
 
+void xuatDongChiChuaSoChan(int a[MAX][MAX], int m, int n) {
+    printf("Cac dong chi chua so chan:\n");
+    for (int i = 0; i < m; i++) {
+        int chiChuaSoChan = 1;
+        for (int j = 0; j < n; j++) {
+            if (a[i][j] % 2 != 0) {
+                chiChuaSoChan = 0;
+                break;
+            }
+        }
+        if (chiChuaSoChan) {
+            for (int j = 0; j < n; j++) {
+                printf("%4d", a[i][j]);
+            }
+            printf("\n");
+        }
+    }
+}
+
 int main() {
     int a[MAX][MAX];
     int m, n, k;
@@ -97,6 +116,7 @@ int main() {
         printf("3. Xuat phan tu lon nhat tren tung cot\n");
         printf("4. Xuat cac phan tu thuoc cac duong bien\n");
         printf("5. Xuat cac phan tu cuc dai\n");
+        printf("6. Xuat dong chi chua so chan\n");
         printf("0. Thoat\n");
         printf("Nhap lua chon cua ban: ");
         scanf("%d", &choice);
@@ -124,7 +144,9 @@ int main() {
         case 5:
             xuatCacPhanTuCucDai(a, m, n);
             break;
-
+        case 6:
+            xuatDongChiChuaSoChan(a, m, n);
+            break;
         case 0:
             printf("Thoat chuong trinh.\n");
             break;
