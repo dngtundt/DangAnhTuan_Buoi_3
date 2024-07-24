@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\dtun coder\\BTVN_THKTLT_Buoi_3\\DangAnhTuan_Buoi_3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4F48C021-14E3-40D3-8EED-46629612F24D}|DangAnhTuan_Buoi_3\\DangAnhTuan_Buoi_3.vcxproj|D:\\dtun coder\\BTVN_THKTLT_Buoi_3\\DangAnhTuan_Buoi_3\\DangAnhTuan_Buoi_3\\Bai_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{4F48C021-14E3-40D3-8EED-46629612F24D}|DangAnhTuan_Buoi_3\\DangAnhTuan_Buoi_3.vcxproj|solutionrelative:DangAnhTuan_Buoi_3\\Bai_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Bai_1.cpp",
+              "DocumentMoniker": "D:\\dtun coder\\BTVN_THKTLT_Buoi_3\\DangAnhTuan_Buoi_3\\DangAnhTuan_Buoi_3\\Bai_1.cpp",
+              "RelativeDocumentMoniker": "DangAnhTuan_Buoi_3\\Bai_1.cpp",
+              "ToolTip": "D:\\dtun coder\\BTVN_THKTLT_Buoi_3\\DangAnhTuan_Buoi_3\\DangAnhTuan_Buoi_3\\Bai_1.cpp",
+              "RelativeToolTip": "DangAnhTuan_Buoi_3\\Bai_1.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-24T06:12:37.715Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
