@@ -23,6 +23,8 @@ void customColumnSort(int a[MAX][MAX], int m, int n);
 int checkZigzagDecrease(int a[MAX][MAX], int m, int n);
 void listEvenRowsIndices(int a[MAX][MAX], int m, int n);
 void listDecreasingRows(int a[MAX][MAX], int m, int n);
+int mostFrequentValue(int a[MAX][MAX], int m, int n);
+int mostFrequentDigit(int a[MAX][MAX], int m, int n);
 
 int main() {
     int a[MAX][MAX];
@@ -93,6 +95,12 @@ int main() {
             break;
         case 9:
             listDecreasingRows(a, m, n);
+            break;
+        case 10:
+            printf("Gia tri xuat hien nhieu nhat: %d\n", mostFrequentValue(a, m, n));
+            break;
+        case 11:
+            printf("Chu so xuat hien nhieu nhat: %d\n", mostFrequentDigit(a, m, n));
             break;
         case 0:
             return 0;
@@ -364,4 +372,44 @@ void listDecreasingRows(int a[MAX][MAX], int m, int n) {
             printf("\n");
         }
     }
+}
+
+int mostFrequentValue(int a[MAX][MAX], int m, int n) {
+    int frequency[MAX * MAX] = { 0 };
+    int maxFrequency = 0;
+    int value = a[0][0];
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            int index = a[i][j];
+            frequency[index]++;
+            if (frequency[index] > maxFrequency) {
+                maxFrequency = frequency[index];
+                value = a[i][j];
+            }
+        }
+    }
+    return value;
+}
+
+int mostFrequentDigit(int a[MAX][MAX], int m, int n) {
+    int digitFrequency[10] = { 0 };
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            int num = a[i][j];
+            while (num != 0) {
+                int digit = num % 10;
+                digitFrequency[digit]++;
+                num /= 10;
+            }
+        }
+    }
+    int maxFrequency = 0;
+    int digit = 0;
+    for (int i = 0; i < 10; i++) {
+        if (digitFrequency[i] > maxFrequency) {
+            maxFrequency = digitFrequency[i];
+            digit = i;
+        }
+    }
+    return digit;
 }
