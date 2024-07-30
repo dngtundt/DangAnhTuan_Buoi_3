@@ -18,6 +18,7 @@ void oddColumns(int a[MAX][MAX], int m, int n);
 int maxBorderElement(int a[MAX][MAX], int m, int n);
 int countDigitTwo(int a[MAX][MAX], int m, int n);
 void minElements(int a[MAX][MAX], int m, int n);
+void customRowSort(int a[MAX][MAX], int m, int n);
 
 int main() {
     int a[MAX][MAX];
@@ -66,6 +67,10 @@ int main() {
             break;
         case 4:
             minElements(a, m, n);
+            break;
+        case 5:
+            customRowSort(a, m, n);
+            printMatrix(a, m, n);
             break;
         case 0:
             return 0;
@@ -260,3 +265,18 @@ void minElements(int a[MAX][MAX], int m, int n) {
         printf("\n");
     }
 }
+
+void customRowSort(int a[MAX][MAX], int m, int n) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n - 1; j++) {
+            for (int k = j + 1; k < n; k++) {
+                if ((i % 2 == 0 && a[i][j] > a[i][k]) || (i % 2 != 0 && a[i][j] < a[i][k])) {
+                    int temp = a[i][j];
+                    a[i][j] = a[i][k];
+                    a[i][k] = temp;
+                }
+            }
+        }
+    }
+}
+
