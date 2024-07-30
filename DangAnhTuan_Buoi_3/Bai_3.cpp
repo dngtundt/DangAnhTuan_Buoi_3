@@ -16,6 +16,7 @@ void sortRows(int a[MAX][MAX], int m, int n);
 
 void oddColumns(int a[MAX][MAX], int m, int n);
 int maxBorderElement(int a[MAX][MAX], int m, int n);
+int countDigitTwo(int a[MAX][MAX], int m, int n);
 
 int main() {
     int a[MAX][MAX];
@@ -58,6 +59,9 @@ int main() {
             break;
         case 2:
             printf("Phan tu lon nhat tren bien: %d\n", maxBorderElement(a, m, n));
+            break;
+        case 3:
+            printf("So phan tu chua chu so 2: %d\n", countDigitTwo(a, m, n));
             break;
         case 0:
             return 0;
@@ -214,4 +218,21 @@ int maxBorderElement(int a[MAX][MAX], int m, int n) {
         if (a[i][n - 1] > max) max = a[i][n - 1];
     }
     return max;
+}
+
+int countDigitTwo(int a[MAX][MAX], int m, int n) {
+    int count = 0;
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            int num = a[i][j];
+            while (num != 0) {
+                if (num % 10 == 2) {
+                    count++;
+                    break;
+                }
+                num /= 10;
+            }
+        }
+    }
+    return count;
 }
