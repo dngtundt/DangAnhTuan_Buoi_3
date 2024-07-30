@@ -20,6 +20,7 @@ int countDigitTwo(int a[MAX][MAX], int m, int n);
 void minElements(int a[MAX][MAX], int m, int n);
 void customRowSort(int a[MAX][MAX], int m, int n);
 void customColumnSort(int a[MAX][MAX], int m, int n);
+int checkZigzagDecrease(int a[MAX][MAX], int m, int n);
 
 int main() {
     int a[MAX][MAX];
@@ -77,6 +78,15 @@ int main() {
             customColumnSort(a, m, n);
             printMatrix(a, m, n);
             break;
+        case 7:
+            if (checkZigzagDecrease(a, m, n)) {
+                printf("Ma tran giam dan theo cot va dong (ziczac)\n");
+            }
+            else {
+                printf("Ma tran khong giam dan theo cot va dong (ziczac)\n");
+            }
+            break;
+
         case 0:
             return 0;
         default:
@@ -297,5 +307,19 @@ void customColumnSort(int a[MAX][MAX], int m, int n) {
             }
         }
     }
+}
+
+int checkZigzagDecrease(int a[MAX][MAX], int m, int n) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n - 1; j++) {
+            if (a[i][j] < a[i][j + 1]) return 0;
+        }
+    }
+    for (int j = 0; j < n; j++) {
+        for (int i = 0; i < m - 1; i++) {
+            if (a[i][j] < a[i + 1][j]) return 0;
+        }
+    }
+    return 1;
 }
 
