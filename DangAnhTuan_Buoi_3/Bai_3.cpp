@@ -21,6 +21,7 @@ void minElements(int a[MAX][MAX], int m, int n);
 void customRowSort(int a[MAX][MAX], int m, int n);
 void customColumnSort(int a[MAX][MAX], int m, int n);
 int checkZigzagDecrease(int a[MAX][MAX], int m, int n);
+void listEvenRowsIndices(int a[MAX][MAX], int m, int n);
 
 int main() {
     int a[MAX][MAX];
@@ -86,7 +87,9 @@ int main() {
                 printf("Ma tran khong giam dan theo cot va dong (ziczac)\n");
             }
             break;
-
+        case 8:
+            listEvenRowsIndices(a, m, n);
+            break;
         case 0:
             return 0;
         default:
@@ -323,3 +326,19 @@ int checkZigzagDecrease(int a[MAX][MAX], int m, int n) {
     return 1;
 }
 
+void listEvenRowsIndices(int a[MAX][MAX], int m, int n) {
+    printf("\nChi so cac dong chua toan gia tri chan:\n");
+    for (int i = 0; i < m; i++) {
+        int isEvenRow = 1;
+        for (int j = 0; j < n; j++) {
+            if (a[i][j] % 2 != 0) {
+                isEvenRow = 0;
+                break;
+            }
+        }
+        if (isEvenRow) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
