@@ -25,6 +25,7 @@ void listEvenRowsIndices(int a[MAX][MAX], int m, int n);
 void listDecreasingRows(int a[MAX][MAX], int m, int n);
 int mostFrequentValue(int a[MAX][MAX], int m, int n);
 int mostFrequentDigit(int a[MAX][MAX], int m, int n);
+void columnsWithMinSum(int a[MAX][MAX], int m, int n);
 
 int main() {
     int a[MAX][MAX];
@@ -101,6 +102,9 @@ int main() {
             break;
         case 11:
             printf("Chu so xuat hien nhieu nhat: %d\n", mostFrequentDigit(a, m, n));
+            break;
+        case 12:
+            columnsWithMinSum(a, m, n);
             break;
         case 0:
             return 0;
@@ -412,4 +416,30 @@ int mostFrequentDigit(int a[MAX][MAX], int m, int n) {
         }
     }
     return digit;
+}
+
+void columnsWithMinSum(int a[MAX][MAX], int m, int n) {
+    int minSum = 0;
+    int first = 1;
+    printf("\nCac cot co tong nho nhat:\n");
+    for (int j = 0; j < n; j++) {
+        int sum = 0;
+        for (int i = 0; i < m; i++) {
+            sum += a[i][j];
+        }
+        if (first || sum < minSum) {
+            minSum = sum;
+            first = 0;
+        }
+    }
+    for (int j = 0; j < n; j++) {
+        int sum = 0;
+        for (int i = 0; i < m; i++) {
+            sum += a[i][j];
+        }
+        if (sum == minSum) {
+            printf("%d ", j);
+        }
+    }
+    printf("\n");
 }
