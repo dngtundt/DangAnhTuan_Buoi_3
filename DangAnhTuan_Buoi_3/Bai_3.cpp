@@ -17,6 +17,7 @@ void sortRows(int a[MAX][MAX], int m, int n);
 void oddColumns(int a[MAX][MAX], int m, int n);
 int maxBorderElement(int a[MAX][MAX], int m, int n);
 int countDigitTwo(int a[MAX][MAX], int m, int n);
+void minElements(int a[MAX][MAX], int m, int n);
 
 int main() {
     int a[MAX][MAX];
@@ -62,6 +63,9 @@ int main() {
             break;
         case 3:
             printf("So phan tu chua chu so 2: %d\n", countDigitTwo(a, m, n));
+            break;
+        case 4:
+            minElements(a, m, n);
             break;
         case 0:
             return 0;
@@ -235,4 +239,24 @@ int countDigitTwo(int a[MAX][MAX], int m, int n) {
         }
     }
     return count;
+}
+
+void minElements(int a[MAX][MAX], int m, int n) {
+    printf("\nCac phan tu cuc tieu:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            int isMin = 1;
+            if (i > 0 && a[i][j] >= a[i - 1][j]) isMin = 0;
+            if (i < m - 1 && a[i][j] >= a[i + 1][j]) isMin = 0;
+            if (j > 0 && a[i][j] >= a[i][j - 1]) isMin = 0;
+            if (j < n - 1 && a[i][j] >= a[i][j + 1]) isMin = 0;
+            if (isMin) {
+                printf("%4d ", a[i][j]);
+            }
+            else {
+                printf("    ");
+            }
+        }
+        printf("\n");
+    }
 }
