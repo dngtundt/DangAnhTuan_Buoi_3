@@ -14,6 +14,8 @@ void maxElements(int a[MAX][MAX], int m, int n);
 void evenRows(int a[MAX][MAX], int m, int n);
 void sortRows(int a[MAX][MAX], int m, int n);
 
+void oddColumns(int a[MAX][MAX], int m, int n);
+
 int main() {
     int a[MAX][MAX];
     int m, n;
@@ -50,6 +52,9 @@ int main() {
         scanf("%d", &choice);
 
         switch (choice) {
+        case 1:
+            oddColumns(a, m, n);
+            break;
         case 0:
             return 0;
         default:
@@ -171,6 +176,25 @@ void sortRows(int a[MAX][MAX], int m, int n) {
                     a[i][k] = temp;
                 }
             }
+        }
+    }
+}
+
+void oddColumns(int a[MAX][MAX], int m, int n) {
+    printf("\nCac cot chi chua so le:\n");
+    for (int j = 0; j < n; j++) {
+        int isOddColumn = 1;
+        for (int i = 0; i < m; i++) {
+            if (a[i][j] % 2 == 0) {
+                isOddColumn = 0;
+                break;
+            }
+        }
+        if (isOddColumn) {
+            for (int i = 0; i < m; i++) {
+                printf("%4d", a[i][j]);
+            }
+            printf("\n");
         }
     }
 }
