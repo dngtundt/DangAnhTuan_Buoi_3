@@ -22,6 +22,7 @@ void customRowSort(int a[MAX][MAX], int m, int n);
 void customColumnSort(int a[MAX][MAX], int m, int n);
 int checkZigzagDecrease(int a[MAX][MAX], int m, int n);
 void listEvenRowsIndices(int a[MAX][MAX], int m, int n);
+void listDecreasingRows(int a[MAX][MAX], int m, int n);
 
 int main() {
     int a[MAX][MAX];
@@ -89,6 +90,9 @@ int main() {
             break;
         case 8:
             listEvenRowsIndices(a, m, n);
+            break;
+        case 9:
+            listDecreasingRows(a, m, n);
             break;
         case 0:
             return 0;
@@ -341,4 +345,23 @@ void listEvenRowsIndices(int a[MAX][MAX], int m, int n) {
         }
     }
     printf("\n");
+}
+
+void listDecreasingRows(int a[MAX][MAX], int m, int n) {
+    printf("\nCac dong chua gia tri giam dan:\n");
+    for (int i = 0; i < m; i++) {
+        int isDecreasingRow = 1;
+        for (int j = 0; j < n - 1; j++) {
+            if (a[i][j] < a[i][j + 1]) {
+                isDecreasingRow = 0;
+                break;
+            }
+        }
+        if (isDecreasingRow) {
+            for (int j = 0; j < n; j++) {
+                printf("%4d", a[i][j]);
+            }
+            printf("\n");
+        }
+    }
 }
