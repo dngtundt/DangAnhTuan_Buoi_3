@@ -26,6 +26,9 @@ void listDecreasingRows(int a[MAX][MAX], int m, int n);
 int mostFrequentValue(int a[MAX][MAX], int m, int n);
 int mostFrequentDigit(int a[MAX][MAX], int m, int n);
 void columnsWithMinSum(int a[MAX][MAX], int m, int n);
+void swapColumns(int a[MAX][MAX], int m, int col1, int col2);
+void swapRows(int a[MAX][MAX], int m, int row1, int row2);
+
 
 int main() {
     int a[MAX][MAX];
@@ -106,6 +109,23 @@ int main() {
         case 12:
             columnsWithMinSum(a, m, n);
             break;
+        case 13: {
+            int col1, col2;
+            printf("Nhap hai cot can hoan vi (i, j): ");
+            scanf("%d %d", &col1, &col2);
+            swapColumns(a, m, col1, col2);
+            printMatrix(a, m, n);
+            break;
+        }
+        case 14: {
+            int row1, row2;
+            printf("Nhap hai dong can hoan vi (k, l): ");
+            scanf("%d %d", &row1, &row2);
+            swapRows(a, m, row1, row2);
+            printMatrix(a, m, n);
+            break;
+        }
+
         case 0:
             return 0;
         default:
@@ -442,4 +462,20 @@ void columnsWithMinSum(int a[MAX][MAX], int m, int n) {
         }
     }
     printf("\n");
+}
+
+void swapColumns(int a[MAX][MAX], int m, int col1, int col2) {
+    for (int i = 0; i < m; i++) {
+        int temp = a[i][col1];
+        a[i][col1] = a[i][col2];
+        a[i][col2] = temp;
+    }
+}
+
+void swapRows(int a[MAX][MAX], int m, int row1, int row2) {
+    for (int j = 0; j < m; j++) {
+        int temp = a[row1][j];
+        a[row1][j] = a[row2][j];
+        a[row2][j] = temp;
+    }
 }
