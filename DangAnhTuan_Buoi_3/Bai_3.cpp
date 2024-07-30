@@ -15,6 +15,7 @@ void evenRows(int a[MAX][MAX], int m, int n);
 void sortRows(int a[MAX][MAX], int m, int n);
 
 void oddColumns(int a[MAX][MAX], int m, int n);
+int maxBorderElement(int a[MAX][MAX], int m, int n);
 
 int main() {
     int a[MAX][MAX];
@@ -54,6 +55,9 @@ int main() {
         switch (choice) {
         case 1:
             oddColumns(a, m, n);
+            break;
+        case 2:
+            printf("Phan tu lon nhat tren bien: %d\n", maxBorderElement(a, m, n));
             break;
         case 0:
             return 0;
@@ -197,4 +201,17 @@ void oddColumns(int a[MAX][MAX], int m, int n) {
             printf("\n");
         }
     }
+}
+
+int maxBorderElement(int a[MAX][MAX], int m, int n) {
+    int max = a[0][0];
+    for (int j = 0; j < n; j++) {
+        if (a[0][j] > max) max = a[0][j];
+        if (a[m - 1][j] > max) max = a[m - 1][j];
+    }
+    for (int i = 1; i < m - 1; i++) {
+        if (a[i][0] > max) max = a[i][0];
+        if (a[i][n - 1] > max) max = a[i][n - 1];
+    }
+    return max;
 }
